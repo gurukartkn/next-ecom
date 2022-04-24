@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 import { client } from "../lib/client";
-import { Product, FooterBanner, HeroBanner } from "../components";
+import { Products, FooterBanner, HeroBanner } from "../components";
 
 export default function Home({ products, bannerData }) {
   return (
@@ -20,7 +20,9 @@ export default function Home({ products, bannerData }) {
         <p>Speakers of many variations</p>
       </div>
       <div className="products-container">
-        {products?.map((product) => product.name)}
+        {products?.map((product) => (
+          <Products key={product.id} product={product} />
+        ))}
       </div>
       <FooterBanner />
     </div>
